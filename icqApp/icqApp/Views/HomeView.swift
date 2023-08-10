@@ -9,22 +9,22 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var presentLogin: Bool = false
-
     var body: some View {
-        ZStack {
-            Image("login")
-            VStack {
-                if !presentLogin {
-                    SignupView(presentLogin: $presentLogin)
-                        .padding(.horizontal, MasterPage.Constant.Space.medium)
-                } else {
-                    LoginView(presentLogin: $presentLogin)
-                        .padding(.horizontal, MasterPage.Constant.Space.medium)
+        VStack {
+            Image("login").overlay {
+                VStack {
+                    if !presentLogin {
+                        SignupView(presentLogin: $presentLogin)
+                            .padding(.horizontal, MasterPage.Constant.Space.medium)
+                    } else {
+                        LoginView(presentLogin: $presentLogin)
+                            .padding(.horizontal, MasterPage.Constant.Space.medium)
+                    }
+                    Spacer()
                 }
-                Spacer()
+                .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
+                .padding(.top, 210)
             }
-            .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
-            .padding(.top, 100)
         }
     }
 }

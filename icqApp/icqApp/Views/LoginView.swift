@@ -27,7 +27,7 @@ struct LoginView: View {
 
     var body: some View {
         VStack {
-            Text("Login").font(.title).foregroundColor(.purple)
+            Text("Login").font(.title).foregroundColor(.black)
             if !errorMessage.isEmptyOrWhiteSpace {
                 Text(errorMessage).foregroundColor(.white)
             }
@@ -53,7 +53,6 @@ struct LoginView: View {
                 }
             }
             .scrollContentBackground(.hidden)
-            .foregroundColor(.purple)
             .frame(height: 190)
         }
         .navigationBarBackButtonHidden(true)
