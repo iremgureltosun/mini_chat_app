@@ -9,7 +9,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import Foundation
 
-struct ChatRoom: Codable, Identifiable {
+struct ChatGroup: Codable, Identifiable {
     var documentId: String? = nil
     let subject: String
 
@@ -18,17 +18,17 @@ struct ChatRoom: Codable, Identifiable {
     }
 }
 
-extension ChatRoom {
+extension ChatGroup {
     func toDictionary() -> [String: Any] {
         return ["subject": subject]
     }
 
-    static func fromSnapshot(snapshot: QueryDocumentSnapshot) -> ChatRoom? {
+    static func fromSnapshot(snapshot: QueryDocumentSnapshot) -> ChatGroup? {
         let dictionary = snapshot.data()
         guard let subject = dictionary["subject"] as? String else {
             return nil
         }
 
-        return ChatRoom(documentId: snapshot.documentID, subject: subject)
+        return ChatGroup(documentId: snapshot.documentID, subject: subject)
     }
 }

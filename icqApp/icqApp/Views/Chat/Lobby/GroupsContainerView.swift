@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ChatRoomsContainerView: View {
+struct GroupsContainerView: View {
     @State private var isPresented: Bool = false
-    @EnvironmentObject private var chatRoomsManager: ChatRoomsManager
+    @EnvironmentObject private var groupsManager: GroupsManager
 
     var body: some View {
         VStack {
@@ -23,13 +23,13 @@ struct ChatRoomsContainerView: View {
                 .padding([.trailing, .top], MasterPage.Constant.Space.horizontalPadding)
             }
 
-            List(chatRoomsManager.chatRooms) { room in
+            List(groupsManager.chatRooms) { room in
                 NavigationLink {
                     DialogView(chatRoom: room)
-                        .environmentObject(ChatRoomsManager())
+                        .environmentObject(GroupsManager())
                 } label: {
                     HStack {
-                        Group{
+                        Group {
                             Image(systemName: "person.2")
                             Text(room.subject)
                         }.padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
@@ -60,7 +60,7 @@ struct ChatRoomsContainerView: View {
 
         .task {
             do {
-                try await chatRoomsManager.fetchChatRooms()
+                try await groupsManager.fetchChatRooms()
             } catch {
                 debugPrint(error)
             }
@@ -73,7 +73,7 @@ struct ChatRoomsContainerView: View {
 
 struct ChatRoomsContainerView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatRoomsContainerView()
-            .environmentObject(ChatRoomsManager())
+        GroupsContainerView()
+            .environmentObject(GroupsManager())
     }
 }

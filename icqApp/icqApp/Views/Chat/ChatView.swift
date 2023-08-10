@@ -22,6 +22,11 @@ struct ChatView: View {
                 .tabItem {
                     Label("Friends", systemImage: "face.smiling")
                 }
+
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -48,7 +53,7 @@ struct ChatView: View {
                 .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
                 .frame(height: 50)
 
-                ChatRoomsContainerView().environmentObject(ChatRoomsManager())
+                GroupsContainerView().environmentObject(GroupsManager())
             }
         }
     }

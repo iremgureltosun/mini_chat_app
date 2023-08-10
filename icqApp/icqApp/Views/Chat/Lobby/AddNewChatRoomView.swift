@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddNewChatRoomView: View {
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject private var chatRoomsManager: ChatRoomsManager
+    @EnvironmentObject private var chatRoomsManager: GroupsManager
     @State private var subject: String = ""
 
     private var isFormValid: Bool {
@@ -17,7 +17,7 @@ struct AddNewChatRoomView: View {
     }
 
     private func saveRoom() async throws {
-        let room = ChatRoom(subject: subject)
+        let room = ChatGroup(subject: subject)
         try await chatRoomsManager.save(chatRoom: room)
         dismiss()
     }
@@ -62,7 +62,7 @@ struct AddNewChatRoomView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             AddNewChatRoomView()
-                .environmentObject(ChatRoomsManager())
+                .environmentObject(GroupsManager())
         }
     }
 }

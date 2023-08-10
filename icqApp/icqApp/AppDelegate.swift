@@ -22,7 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
         // MARK: Setup notifications
 
-        //First request PushNotificationPermission from user
+        // First request PushNotificationPermission from user
 
         UNUserNotificationCenter.current().delegate = self
 
@@ -92,7 +92,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
     func userNotificationCenter(_: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
+                                withCompletionHandler completionHandler: @escaping () -> Void)
+    {
         let userInfo = response.notification.request.content.userInfo
 
         if let messageID = userInfo[gcmMessageIDKey] {

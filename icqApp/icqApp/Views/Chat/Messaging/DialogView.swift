@@ -9,9 +9,9 @@ import FirebaseAuth
 import SwiftUI
 
 struct DialogView: View {
-    let chatRoom: ChatRoom
+    let chatRoom: ChatGroup
     @State private var text: String = ""
-    @EnvironmentObject private var chatManager: ChatRoomsManager
+    @EnvironmentObject private var chatManager: GroupsManager
 
     var body: some View {
         VStack {
@@ -34,7 +34,7 @@ struct DialogView: View {
                 Task {
                     do {
                         guard let user = Auth.auth().currentUser else { return }
-                        let chatMessage = ChatMessage(documentId: UUID().uuidString, text: text, userId: user.uid, dateCreated: Date(), displayName: user.displayName ?? "guest")
+                        let chatMessage = ChatMessage(documentId: UUID().uuidString, text: text, uid: user.uid, dateCreated: Date(), displayName: user.displayName ?? "guest")
                         try await chatManager.sendMessage(message: chatMessage, chatRoom: chatRoom)
                         text = ""
                     } catch {
@@ -57,6 +57,6 @@ struct DialogView: View {
 
 struct DialogView_Previews: PreviewProvider {
     static var previews: some View {
-        DialogView(chatRoom: ChatRoom(subject: "Music")).environmentObject(ChatRoomsManager())
+        DialogView(chatRoom: ChatGroup(subject: "Music")).environmentObject(GroupsManager())
     }
 }

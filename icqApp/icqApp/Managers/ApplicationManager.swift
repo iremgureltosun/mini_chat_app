@@ -10,6 +10,7 @@ import Foundation
 enum Route: Hashable {
     case home
     case chat
+    case settings
 }
 
 class ApplicationManager: ObservableObject {

@@ -10,8 +10,8 @@ import FirebaseFirestoreSwift
 import Foundation
 
 @MainActor
-class ChatRoomsManager: ObservableObject {
-    @Published var chatRooms: [ChatRoom] = []
+class GroupsManager: ObservableObject {
+    @Published var chatRooms: [ChatGroup] = []
     @Published var chatMessages: [ChatMessage] = []
 
     let db = Firestore.firestore()
@@ -19,7 +19,7 @@ class ChatRoomsManager: ObservableObject {
     var firestoreListener: ListenerRegistration?
 
     init() {
-        collection = db.collection("ChatRooms")
+        collection = db.collection(DBCollections.groups)
     }
 
     func fetchChatRooms() async throws {
@@ -27,11 +27,11 @@ class ChatRoomsManager: ObservableObject {
 
         chatRooms = snapshot.documents.compactMap { snapshot in
             // we need to get a chat room based on snapshot
-            ChatRoom.fromSnapshot(snapshot: snapshot)
+            ChatGroup.fromSnapshot(snapshot: snapshot)
         }
     }
 
-    func save(chatRoom: ChatRoom) async throws {
+    func save(chatRoom: ChatGroup) async throws {
         var docRef: DocumentReference?
         docRef = try await collection
             .addDocument(data: chatRoom.toDictionary())
@@ -42,19 +42,19 @@ class ChatRoomsManager: ObservableObject {
         }
     }
 
-    func sendMessage(message: ChatMessage, chatRoom: ChatRoom) async throws {
+    func sendMessage(message: ChatMessage, chatRoom: ChatGroup) async throws {
         guard let roomDocumentId = chatRoom.documentId else { return }
         try await collection.document(roomDocumentId)
-            .collection("messages")
+            .collection(DBCollections.messages)
             .addDocument(data: message.toDictionary())
     }
 
-    func listenChatMessages(in chatRoom: ChatRoom) async throws {
+    func listenChatMessages(in chatRoom: ChatGroup) async throws {
         chatMessages.removeAll()
         guard let documentId = chatRoom.documentId else { return }
-        firestoreListener = db.collection("ChatRooms")
+        firestoreListener = db.collection(DBCollections.groups)
             .document(documentId)
-            .collection("messages")
+            .collection(DBCollections.messages)
             .order(by: "dateCreated", descending: false)
             .addSnapshotListener { [weak self] snapshot, _ in
                 guard let snapshot = snapshot else {

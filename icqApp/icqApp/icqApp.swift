@@ -31,10 +31,10 @@ struct icqApp: App {
                     switch route {
                     case .home:
                         HomeView()
-                            .environmentObject(appState)
-                            .environmentObject(userManager)
                     case .chat:
                         ChatView()
+                    case .settings:
+                        SettingsView()
                     }
                 }
             }
