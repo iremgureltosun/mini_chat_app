@@ -9,11 +9,12 @@ import FirebaseAuth
 import SwiftUI
 
 struct LoginView: View {
+    @AppStorage(UserDefaultsKeys.currentUserId) private var loggedInUserId: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var errorMessage: String = ""
     @EnvironmentObject private var appState: ApplicationManager
-   
+
     private var isFormValid: Bool {
         !email.isEmptyOrWhiteSpace && !password.isEmptyOrWhiteSpace
     }
@@ -26,7 +27,7 @@ struct LoginView: View {
 
     var body: some View {
         VStack {
-            Text("Login").font(.title).foregroundColor(.white)
+            Text("Login").font(.title).foregroundColor(.purple)
             if !errorMessage.isEmptyOrWhiteSpace {
                 Text(errorMessage).foregroundColor(.white)
             }
@@ -48,16 +49,20 @@ struct LoginView: View {
                             presentLogin = false
                         }
                     }
-                    .buttonStyle(.borderless)
+                    .buttonStyle(.automatic)
                 }
             }
+            .scrollContentBackground(.hidden)
+            .foregroundColor(.purple)
+            .frame(height: 190)
         }
         .navigationBarBackButtonHidden(true)
     }
 
     private func login() async {
         do {
-            let _ = try await Auth.auth().signIn(withEmail: email, password: password)
+            let provider = try await Auth.auth().signIn(withEmail: email, password: password)
+            loggedInUserId = provider.user.uid
             appState.routes.append(.chat)
         } catch {
             errorMessage = error.localizedDescription

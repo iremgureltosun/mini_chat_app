@@ -5,19 +5,10 @@
 //  Created by Tosun, Irem on 10.07.2023.
 //
 
+import Firebase
 import FirebaseAuth
-import FirebaseCore
 import SwiftUI
-
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_: UIApplication,
-                     didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool
-    {
-        FirebaseApp.configure()
-
-        return true
-    }
-}
+import UIKit
 
 @main
 struct icqApp: App {
@@ -33,7 +24,7 @@ struct icqApp: App {
                     if Auth.auth().currentUser != nil {
                         ChatView()
                     } else {
-                        ContentView()
+                        LaunchView()
                     }
                 }
                 .navigationDestination(for: Route.self) { route in

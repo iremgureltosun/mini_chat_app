@@ -12,15 +12,19 @@ struct HomeView: View {
 
     var body: some View {
         ZStack {
-            Color(.purple).ignoresSafeArea(.all, edges: .all)
-
+            Image("login")
             VStack {
                 if !presentLogin {
                     SignupView(presentLogin: $presentLogin)
+                        .padding(.horizontal, MasterPage.Constant.Space.medium)
                 } else {
                     LoginView(presentLogin: $presentLogin)
+                        .padding(.horizontal, MasterPage.Constant.Space.medium)
                 }
+                Spacer()
             }
+            .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
+            .padding(.top, 100)
         }
     }
 }

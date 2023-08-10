@@ -42,9 +42,9 @@ struct ChatRoomsContainerView: View {
             }
         }
         .padding()
-            .sheet(isPresented: $isPresented) {
-                AddNewChatRoomView()
-            }
+        .sheet(isPresented: $isPresented) {
+            AddNewChatRoomView()
+        }
     }
 }
 

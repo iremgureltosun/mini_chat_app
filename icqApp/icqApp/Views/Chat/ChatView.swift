@@ -27,13 +27,13 @@ struct ChatView: View {
     }
 
     @ViewBuilder var chatContainer: some View {
-        VStack{
+        VStack {
             HStack {
                 if let userName = Auth.auth().currentUser?.displayName {
                     Text("Hello, \(userName)!")
                 }
                 Spacer()
-                
+
                 if Auth.auth().currentUser != nil {
                     Button("Logout") {
                         logout()
@@ -42,7 +42,7 @@ struct ChatView: View {
             }
             .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
             .frame(height: 50)
-            
+
             ChatRoomsContainerView().environmentObject(ChatRoomsManager())
         }
     }

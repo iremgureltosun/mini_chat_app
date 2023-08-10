@@ -26,8 +26,7 @@ extension ChatMessage {
                 "userId": userId,
                 "dateCreated": dateCreated,
                 "displayName": displayName,
-                "documentId": documentId
-        ]
+                "documentId": documentId]
     }
 
     static func fromSnapshot(snapshot: QueryDocumentSnapshot) -> ChatMessage? {

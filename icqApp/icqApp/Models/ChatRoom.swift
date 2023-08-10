@@ -5,9 +5,9 @@
 //  Created by Tosun, Irem on 11.07.2023.
 //
 
-import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Foundation
 
 struct ChatRoom: Codable, Identifiable {
     var documentId: String? = nil

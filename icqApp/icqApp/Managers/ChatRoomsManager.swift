@@ -56,7 +56,7 @@ class ChatRoomsManager: ObservableObject {
             .document(documentId)
             .collection("messages")
             .order(by: "dateCreated", descending: false)
-            .addSnapshotListener({ [weak self] snapshot, _ in
+            .addSnapshotListener { [weak self] snapshot, _ in
                 guard let snapshot = snapshot else {
                     print("Error fetching snapshot")
                     return
@@ -68,7 +68,7 @@ class ChatRoomsManager: ObservableObject {
                         }
                     }
                 }
-            })
+            }
     }
 
     func detachFirebaseListener() {

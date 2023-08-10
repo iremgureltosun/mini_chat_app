@@ -26,7 +26,7 @@ struct SignupView: View {
 
     var body: some View {
         VStack {
-            Text("Register").font(.title).foregroundColor(.white)
+            Text("Register").font(.title).foregroundColor(.purple)
             if !errorMessage.isEmptyOrWhiteSpace {
                 Text(errorMessage).foregroundColor(.white)
             }
@@ -51,9 +51,12 @@ struct SignupView: View {
                             presentLogin = true
                         }
                     }
-                    .buttonStyle(.borderless)
+                    .buttonStyle(.automatic)
                 }
             }
+            .scrollContentBackground(.hidden)
+            .foregroundColor(.purple)
+            .frame(height: 240)
         }
         .navigationBarBackButtonHidden(true)
     }
