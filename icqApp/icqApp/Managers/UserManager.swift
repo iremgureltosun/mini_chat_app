@@ -16,6 +16,8 @@ class UserManager: ObservableObject {
         let request = user.createProfileChangeRequest()
         request.displayName = displayName
         try await request.commitChanges()
+
+        try await updateUserInfoForAllMessages(uid: user.uid, updatedInfo: ["displayName": user.displayName ?? "Guest"])
     }
 
     func updatePhotoURL(for user: User, photoURL: URL) async throws {
@@ -24,7 +26,7 @@ class UserManager: ObservableObject {
         try await request.commitChanges()
 
         // update UserInf for all messages
-        try await updateUserInfoForAllMessages(uid: user.uid, updatedInfo: ["profilePhotoURL": photoURL.absoluteString])
+        // try await updateUserInfoForAllMessages(uid: user.uid, updatedInfo: ["profilePhotoURL": photoURL.absoluteString])
     }
 
     private func updateUserInfoForAllMessages(uid: String, updatedInfo: [AnyHashable: Any]) async throws {
