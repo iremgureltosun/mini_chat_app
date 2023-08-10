@@ -9,10 +9,10 @@ import SwiftUI
 
 struct LaunchView: View {
     private let textInput = "Let's Chat!"
-    @State private var welcomeText = ""
     private let typingInterval: TimeInterval = 0.1 // Adjust the typing speed here
-
+    @State private var welcomeText = ""
     @State private var isShowingText: Bool = true
+    @State private var taskStarted = false
     @EnvironmentObject private var appState: ApplicationManager
     var body: some View {
         NavigationView {
@@ -20,8 +20,11 @@ struct LaunchView: View {
                 Image("launch")
                     .onAppear {
                         Task {
-                            try await Task.sleep(nanoseconds: 3_000_000_000)
-                            appState.routes.append(.home)
+                            if !taskStarted{
+                                try await Task.sleep(nanoseconds: 3000000000)
+                                appState.routes.append(.home)
+                                taskStarted = true
+                            }
                         }
                     }
 
@@ -39,7 +42,7 @@ struct LaunchView: View {
                         .onAppear {
                             Task {
                                 // Hide the text after 3.5 second
-                                try await Task.sleep(nanoseconds: 3_500_000_000)
+                                try await Task.sleep(nanoseconds: 3500000000)
                                 withAnimation {
                                     isShowingText = false
                                 }
@@ -50,7 +53,7 @@ struct LaunchView: View {
                 .onAppear {
                     Task {
                         // Show the text after 0.5 second delay
-                        try await Task.sleep(nanoseconds: 500_000_000)
+                        try await Task.sleep(nanoseconds: 500000000)
                         withAnimation {
                             isShowingText = true
                         }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var presentLogin: Bool = false
+    @State private var presentLogin: Bool = true
     var body: some View {
         VStack {
             Image("login").overlay {
@@ -26,6 +26,9 @@ struct HomeView: View {
                 .padding(.top, 210)
             }
         }
+        .onAppear{
+            print("ddddd \(presentLogin)")
+        }
     }
 }
 
@@ -33,6 +36,6 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
             .environmentObject(UserManager())
-            .environmentObject(ApplicationManager())
+            .environmentObject(ApplicationManager.shared)
     }
 }

@@ -9,7 +9,7 @@ import FirebaseAuth
 import SwiftUI
 
 struct LoginView: View {
-    @AppStorage(UserDefaultsKeys.currentUserId) private var loggedInUserId: String = ""
+   // @AppStorage(UserDefaultsKeys.currentUserId) private var loggedInUserId: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var errorMessage: String = ""
@@ -61,7 +61,7 @@ struct LoginView: View {
     private func login() async {
         do {
             let provider = try await Auth.auth().signIn(withEmail: email, password: password)
-            loggedInUserId = provider.user.uid
+            //loggedInUserId = provider.user.uid
             appState.routes.append(.chat)
         } catch {
             errorMessage = error.localizedDescription

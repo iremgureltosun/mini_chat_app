@@ -72,6 +72,6 @@ struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
         ChatView()
             .environmentObject(UserManager())
-            .environmentObject(ApplicationManager())
+            .environmentObject(ApplicationManager.shared)
     }
 }

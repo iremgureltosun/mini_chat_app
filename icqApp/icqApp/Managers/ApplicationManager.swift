@@ -14,5 +14,11 @@ enum Route: Hashable {
 }
 
 class ApplicationManager: ObservableObject {
-    @Published var routes: [Route] = []
+    @Published var routes: [Route]
+    static let shared = ApplicationManager() // The singleton instance
+
+    private init() {
+        // Private initializer prevents external instantiation
+        routes = []
+    }
 }

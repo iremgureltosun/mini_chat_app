@@ -14,7 +14,7 @@ import UIKit
 struct icqApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject private var appState = ApplicationManager()
+    @StateObject private var appState = ApplicationManager.shared
     @StateObject private var userManager = UserManager()
 
     var body: some Scene {
@@ -23,6 +23,7 @@ struct icqApp: App {
                 ZStack {
                     if Auth.auth().currentUser != nil {
                         ChatView()
+
                     } else {
                         LaunchView()
                     }
@@ -31,8 +32,10 @@ struct icqApp: App {
                     switch route {
                     case .home:
                         HomeView()
+
                     case .chat:
                         ChatView()
+
                     case .settings:
                         SettingsView()
                     }
