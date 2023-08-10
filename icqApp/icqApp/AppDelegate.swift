@@ -5,6 +5,8 @@
 //  Created by Tosun, Irem on 26.07.2023.
 //
 import Firebase
+import FirebaseAuth
+import FirebaseCore
 import Foundation
 import UIKit
 import UserNotifications
@@ -20,21 +22,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
         // MARK: Setup notifications
 
-        // First request PushNotificationPermission from user
-        if #available(iOS 10.0, *) {
-            // For iOS 10 display notification (sent via APNS)
-            UNUserNotificationCenter.current().delegate = self
+        //First request PushNotificationPermission from user
 
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: { _, _ in }
-            )
-        } else {
-            let settings: UIUserNotificationSettings =
-                .init(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
+        UNUserNotificationCenter.current().delegate = self
+
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: { _, _ in }
+        )
 
         application.registerForRemoteNotifications()
         return true
@@ -55,7 +51,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 
     func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Enable to register for remote nitifactions", error.localizedDescription)
+        print("Enable to register for remote notifactions", error)
     }
 }
 
@@ -96,8 +92,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
     func userNotificationCenter(_: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void)
-    {
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
 
         if let messageID = userInfo[gcmMessageIDKey] {

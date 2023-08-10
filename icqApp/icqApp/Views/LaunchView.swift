@@ -20,7 +20,7 @@ struct LaunchView: View {
                 Image("launch")
                     .onAppear {
                         Task {
-                            try await Task.sleep(nanoseconds: 4_000_000_000)
+                            try await Task.sleep(nanoseconds: 3_000_000_000)
                             appState.routes.append(.home)
                         }
                     }

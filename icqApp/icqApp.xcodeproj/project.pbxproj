@@ -35,7 +35,7 @@
 		4DC833F72A5C2D9000A78FB5 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833F62A5C2D9000A78FB5 /* ChatView.swift */; };
 		4DC833FA2A5C339800A78FB5 /* MasterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833F92A5C339800A78FB5 /* MasterPage.swift */; };
 		4DC833FC2A5C3CCC00A78FB5 /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833FB2A5C3CCC00A78FB5 /* ApplicationManager.swift */; };
-		4DC833FE2A5C460700A78FB5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833FD2A5C460700A78FB5 /* SettingsView.swift */; };
+		4DC833FE2A5C460700A78FB5 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833FD2A5C460700A78FB5 /* FriendsView.swift */; };
 		4DD2908C2A5D7A5D00936F5F /* ChatRoomsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2908B2A5D7A5D00936F5F /* ChatRoomsManager.swift */; };
 		4DD2908E2A5D7B5B00936F5F /* ChatRoomsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2908D2A5D7B5B00936F5F /* ChatRoomsContainerView.swift */; };
 		4DD290912A5D7D1300936F5F /* AddNewChatRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD290902A5D7D1300936F5F /* AddNewChatRoomView.swift */; };
@@ -90,7 +90,7 @@
 		4DC833F62A5C2D9000A78FB5 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		4DC833F92A5C339800A78FB5 /* MasterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPage.swift; sourceTree = "<group>"; };
 		4DC833FB2A5C3CCC00A78FB5 /* ApplicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
-		4DC833FD2A5C460700A78FB5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4DC833FD2A5C460700A78FB5 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		4DD2908B2A5D7A5D00936F5F /* ChatRoomsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomsManager.swift; sourceTree = "<group>"; };
 		4DD2908D2A5D7B5B00936F5F /* ChatRoomsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomsContainerView.swift; sourceTree = "<group>"; };
 		4DD290902A5D7D1300936F5F /* AddNewChatRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewChatRoomView.swift; sourceTree = "<group>"; };
@@ -215,11 +215,11 @@
 		4DC833DF2A5BF76B00A78FB5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4DE6B3712A84FA3300BD095C /* Home */,
 				4DD2908F2A5D7CFD00936F5F /* Chat */,
 				4DC833DD2A5BEEB200A78FB5 /* HomeView.swift */,
-				4DC833EC2A5C113600A78FB5 /* SignupView.swift */,
-				4DC833F12A5C165100A78FB5 /* LoginView.swift */,
-				4DC833FD2A5C460700A78FB5 /* SettingsView.swift */,
+				4DC833F62A5C2D9000A78FB5 /* ChatView.swift */,
+				4DC833FD2A5C460700A78FB5 /* FriendsView.swift */,
 				4DE6B36D2A84B2AB00BD095C /* LaunchView.swift */,
 			);
 			path = Views;
@@ -255,12 +255,8 @@
 		4DD2908F2A5D7CFD00936F5F /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				4DD290952A5D81F500936F5F /* DialogView.swift */,
-				4DC833F62A5C2D9000A78FB5 /* ChatView.swift */,
-				4DD2908D2A5D7B5B00936F5F /* ChatRoomsContainerView.swift */,
-				4DD290902A5D7D1300936F5F /* AddNewChatRoomView.swift */,
-				4DC34B462A5E87B900C0A9CF /* ChatMessageListView.swift */,
-				4D7921B62A5EF42200814BA2 /* ChatMessageView.swift */,
+				4DE6B3702A84F9E300BD095C /* Messaging */,
+				4DE6B36F2A84F9D400BD095C /* Lobby */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -275,6 +271,34 @@
 				4D9F5A402A7131290071E703 /* TopicsModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4DE6B36F2A84F9D400BD095C /* Lobby */ = {
+			isa = PBXGroup;
+			children = (
+				4DD2908D2A5D7B5B00936F5F /* ChatRoomsContainerView.swift */,
+				4DD290902A5D7D1300936F5F /* AddNewChatRoomView.swift */,
+			);
+			path = Lobby;
+			sourceTree = "<group>";
+		};
+		4DE6B3702A84F9E300BD095C /* Messaging */ = {
+			isa = PBXGroup;
+			children = (
+				4D7921B62A5EF42200814BA2 /* ChatMessageView.swift */,
+				4DC34B462A5E87B900C0A9CF /* ChatMessageListView.swift */,
+				4DD290952A5D81F500936F5F /* DialogView.swift */,
+			);
+			path = Messaging;
+			sourceTree = "<group>";
+		};
+		4DE6B3712A84FA3300BD095C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4DC833F12A5C165100A78FB5 /* LoginView.swift */,
+				4DC833EC2A5C113600A78FB5 /* SignupView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,7 +465,7 @@
 				4DD290912A5D7D1300936F5F /* AddNewChatRoomView.swift in Sources */,
 				4D9F5A382A712B2B0071E703 /* AppDelegate.swift in Sources */,
 				4D9F5A3D2A7130F80071E703 /* NewsItem.swift in Sources */,
-				4DC833FE2A5C460700A78FB5 /* SettingsView.swift in Sources */,
+				4DC833FE2A5C460700A78FB5 /* FriendsView.swift in Sources */,
 				4D7921B72A5EF42200814BA2 /* ChatMessageView.swift in Sources */,
 				4D9F5A412A7131290071E703 /* TopicsModel.swift in Sources */,
 			);

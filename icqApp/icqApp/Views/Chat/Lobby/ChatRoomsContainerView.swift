@@ -18,6 +18,9 @@ struct ChatRoomsContainerView: View {
                 Button("New Room") {
                     isPresented = true
                 }
+                .foregroundColor(.orange)
+                .buttonStyle(.bordered)
+                .padding([.trailing, .top], MasterPage.Constant.Space.horizontalPadding)
             }
 
             List(chatRoomsManager.chatRooms) { room in
@@ -26,22 +29,42 @@ struct ChatRoomsContainerView: View {
                         .environmentObject(ChatRoomsManager())
                 } label: {
                     HStack {
-                        Image(systemName: "person.2")
-                        Text(room.subject)
+                        Group{
+                            Image(systemName: "person.2")
+                            Text(room.subject)
+                        }.padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
                     }
+                    .frame(height: 85)
+                    .contentShape(Rectangle())
                 }
+                .padding(.trailing, MasterPage.Constant.Space.horizontalPadding)
+                .background(RoundedRectangle(cornerRadius: 12).fill(.white))
+                .shadow(
+                    color: .black.opacity(0.08),
+                    radius: 8,
+                    x: 0,
+                    y: 4
+                )
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
             }
+            .listStyle(.plain)
+            .background(.clear)
             Spacer()
         }
+        .frame(height: 700)
+        .contentShape(Rectangle())
+
+        .padding(.horizontal, MasterPage.Constant.Space.medium)
 
         .task {
             do {
                 try await chatRoomsManager.fetchChatRooms()
             } catch {
-                print(error)
+                debugPrint(error)
             }
         }
-        .padding()
         .sheet(isPresented: $isPresented) {
             AddNewChatRoomView()
         }

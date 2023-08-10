@@ -18,32 +18,38 @@ struct ChatView: View {
                     Label("Chats", systemImage: "message.fill")
                 }
 
-            Text("Settings")
+            Text("Friends")
                 .tabItem {
-                    Label("Settings", systemImage: "gear")
+                    Label("Friends", systemImage: "face.smiling")
                 }
         }
         .navigationBarBackButtonHidden(true)
     }
 
     @ViewBuilder var chatContainer: some View {
-        VStack {
-            HStack {
-                if let userName = Auth.auth().currentUser?.displayName {
-                    Text("Hello, \(userName)!")
-                }
-                Spacer()
+        ZStack {
+            Image("lobby")
+                .resizable().ignoresSafeArea()
+            VStack {
+                HStack {
+                    if let userName = Auth.auth().currentUser?.displayName {
+                        Text("Hello, \(userName)!")
+                    }
+                    Spacer()
 
-                if Auth.auth().currentUser != nil {
-                    Button("Logout") {
-                        logout()
+                    if Auth.auth().currentUser != nil {
+                        Button("Logout") {
+                            logout()
+                        }
+                        .buttonStyle(.borderedProminent)
                     }
                 }
-            }
-            .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
-            .frame(height: 50)
+                .background(.clear)
+                .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
+                .frame(height: 50)
 
-            ChatRoomsContainerView().environmentObject(ChatRoomsManager())
+                ChatRoomsContainerView().environmentObject(ChatRoomsManager())
+            }
         }
     }
 
