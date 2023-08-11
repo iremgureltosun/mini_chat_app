@@ -11,7 +11,6 @@ import SwiftUI
 
 struct DialogView: View {
     let chatRoom: ChatGroup
-    @State private var text: String = ""
     @EnvironmentObject private var chatManager: GroupsManager
     @State private var dialogConfig = DialogConfig()
     @FocusState private var isChatFieldFocused: Bool
@@ -93,7 +92,6 @@ struct DialogView: View {
 
         try await chatManager.sendMessage(message: chatMessage, chatRoom: chatRoom)
         clearFields()
-        text = ""
     }
     private func clearFields(){
         dialogConfig.clearForm()
