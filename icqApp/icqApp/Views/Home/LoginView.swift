@@ -13,7 +13,7 @@ struct LoginView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var errorMessage: String = ""
-    @EnvironmentObject private var appState: ApplicationManager
+    @EnvironmentObject private var appManager: ApplicationManager
 
     private var isFormValid: Bool {
         !email.isEmptyOrWhiteSpace && !password.isEmptyOrWhiteSpace
@@ -62,7 +62,7 @@ struct LoginView: View {
         do {
             let provider = try await Auth.auth().signIn(withEmail: email, password: password)
             //loggedInUserId = provider.user.uid
-            appState.routes.append(.chat)
+            appManager.routes.append(.chat)
         } catch {
             errorMessage = error.localizedDescription
         }

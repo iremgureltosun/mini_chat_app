@@ -12,7 +12,7 @@ struct SignupView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var displayName: String = ""
-    @State private var errorMessage: String = ""
+    @EnvironmentObject private var appManager: ApplicationManager
     @EnvironmentObject private var userManager: UserManager
     @Binding private var presentLogin: Bool
 
@@ -27,9 +27,6 @@ struct SignupView: View {
     var body: some View {
         VStack {
             Text("Register").font(.title).foregroundColor(.black)
-            if !errorMessage.isEmptyOrWhiteSpace {
-                Text(errorMessage).foregroundColor(.white)
-            }
             Form {
                 TextField("Email", text: $email).textInputAutocapitalization(.never)
                 SecureField("Password", text: $password).textInputAutocapitalization(.never)
@@ -67,7 +64,7 @@ struct SignupView: View {
             // Activate login view
             presentLogin = true
         } catch {
-            errorMessage = error.localizedDescription
+            appManager.errorWrapper = ErrorWrapper(error: error, guidance: error.localizedDescription)
         }
     }
 }

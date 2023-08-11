@@ -13,7 +13,7 @@ struct LaunchView: View {
     @State private var welcomeText = ""
     @State private var isShowingText: Bool = true
     @State private var taskStarted = false
-    @EnvironmentObject private var appState: ApplicationManager
+    @EnvironmentObject private var appManager: ApplicationManager
     var body: some View {
         NavigationView {
             ZStack {
@@ -22,7 +22,7 @@ struct LaunchView: View {
                         Task {
                             if !taskStarted{
                                 try await Task.sleep(nanoseconds: 3000000000)
-                                appState.routes.append(.home)
+                                appManager.routes.append(.home)
                                 taskStarted = true
                             }
                         }

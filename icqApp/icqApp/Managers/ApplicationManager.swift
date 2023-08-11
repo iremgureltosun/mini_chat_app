@@ -24,10 +24,12 @@ enum Route: Hashable {
 class ApplicationManager: ObservableObject {
     @Published var loadingState: LoadingState = .idle
     @Published var routes: [Route]
+    @Published var errorWrapper: ErrorWrapper?
     static let shared = ApplicationManager() // The singleton instance
 
     private init() {
         // Private initializer prevents external instantiation
         routes = []
+        errorWrapper = nil
     }
 }

@@ -12,7 +12,7 @@ import SwiftUI
 struct DialogView: View {
     let chatRoom: ChatGroup
     @EnvironmentObject private var chatManager: GroupsManager
-    @EnvironmentObject private var appState: ApplicationManager
+    @EnvironmentObject private var appManager: ApplicationManager
     @State private var dialogConfig = DialogConfig()
     @FocusState private var isChatFieldFocused: Bool
 
@@ -65,7 +65,7 @@ struct DialogView: View {
                     } catch {
                         debugPrint(error)
                         clearFields()
-                        appState.loadingState = .idle
+                        appManager.loadingState = .idle
                     }
                 }
             }.padding()
@@ -92,10 +92,10 @@ struct DialogView: View {
             let url = try await Storage.storage().uploadData(for: UUID().uuidString, data: imageData, bucket: .attachments)
             chatMessage.attachmentPhotoURL = url.absoluteString
         }
-        appState.loadingState = .loading("Uploading image")
+        appManager.loadingState = .loading("Uploading image")
 
         try await chatManager.sendMessage(message: chatMessage, chatRoom: chatRoom)
-        appState.loadingState = .idle
+        appManager.loadingState = .idle
         clearFields()
     }
 

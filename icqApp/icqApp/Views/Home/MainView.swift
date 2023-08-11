@@ -9,7 +9,7 @@ import FirebaseAuth
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject private var appState: ApplicationManager
+    @EnvironmentObject private var appManager: ApplicationManager
 
     var body: some View {
         TabView {

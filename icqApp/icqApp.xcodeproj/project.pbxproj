@@ -52,6 +52,8 @@
 		4DE6B37D2A8511A200BD095C /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B37C2A8511A200BD095C /* UIImage+.swift */; };
 		4DE6B37F2A8511D300BD095C /* Storage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B37E2A8511D300BD095C /* Storage+.swift */; };
 		4DE6B3812A85154C00BD095C /* DBCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B3802A85154C00BD095C /* DBCollections.swift */; };
+		4DE98FE82A8674A6009754BD /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE98FE72A8674A6009754BD /* ErrorWrapper.swift */; };
+		4DE98FEA2A867619009754BD /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE98FE92A867619009754BD /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		4DE6B37C2A8511A200BD095C /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		4DE6B37E2A8511D300BD095C /* Storage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+.swift"; sourceTree = "<group>"; };
 		4DE6B3802A85154C00BD095C /* DBCollections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBCollections.swift; sourceTree = "<group>"; };
+		4DE98FE72A8674A6009754BD /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
+		4DE98FE92A867619009754BD /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +242,7 @@
 				4DD2908F2A5D7CFD00936F5F /* Chat */,
 				4DC833FD2A5C460700A78FB5 /* FriendsView.swift */,
 				4DE6B36D2A84B2AB00BD095C /* LaunchView.swift */,
+				4DE98FE92A867619009754BD /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 		4DD290922A5D80B700936F5F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				4DE98FE72A8674A6009754BD /* ErrorWrapper.swift */,
 				4DD290972A5D95EC00936F5F /* ChatMessage.swift */,
 				4DD290932A5D80CA00936F5F /* ChatGroup.swift */,
 			);
@@ -498,9 +504,11 @@
 				4DE68E752A863F2E00356E23 /* PreviewImageView.swift in Sources */,
 				4D450C142A813C2500E69690 /* UserDefaultsKeys.swift in Sources */,
 				4DD2908C2A5D7A5D00936F5F /* GroupsManager.swift in Sources */,
+				4DE98FE82A8674A6009754BD /* ErrorWrapper.swift in Sources */,
 				4DC833F72A5C2D9000A78FB5 /* MainView.swift in Sources */,
 				4DC833F02A5C129D00A78FB5 /* String+.swift in Sources */,
 				4DE68E732A86254000356E23 /* ChatMessageInputView.swift in Sources */,
+				4DE98FEA2A867619009754BD /* ErrorView.swift in Sources */,
 				4DE6B3792A85112E00BD095C /* Image+.swift in Sources */,
 				4DE68E712A86100100356E23 /* LogoutView.swift in Sources */,
 				4DC833B42A5BEA5300A78FB5 /* icqApp.swift in Sources */,

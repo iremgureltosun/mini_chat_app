@@ -9,7 +9,7 @@ import FirebaseAuth
 import SwiftUI
 
 struct LogoutView: View {
-    @EnvironmentObject private var appState: ApplicationManager
+    @EnvironmentObject private var appManager: ApplicationManager
     
     var body: some View {
         Image("logout").ignoresSafeArea()
@@ -20,7 +20,7 @@ struct LogoutView: View {
     func logout() {
         do {
             try Auth.auth().signOut()
-            _ = appState.routes.popLast()
+            _ = appManager.routes.popLast()
         } catch {
             debugPrint(error.localizedDescription)
         }

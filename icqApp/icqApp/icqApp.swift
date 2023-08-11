@@ -14,12 +14,12 @@ import UIKit
 struct icqApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject private var appState = ApplicationManager.shared
+    @StateObject private var appManager = ApplicationManager.shared
     @StateObject private var userManager = UserManager()
 
     var body: some Scene {
         WindowGroup {
-            NavigationStack(path: $appState.routes) {
+            NavigationStack(path: $appManager.routes) {
                 ZStack {
                     if Auth.auth().currentUser != nil {
                         MainView()
@@ -42,14 +42,17 @@ struct icqApp: App {
                 }
             }
             .overlay(alignment: .top, content: {
-                switch appState.loadingState{
+                switch appManager.loadingState{
                 case.idle:
                     EmptyView()
                 case.loading(let text):
                     LoadingView(message: text)
                 }
             })
-            .environmentObject(appState)
+            .sheet(item: $appManager.errorWrapper, content: { errorWrapper in
+                ErrorView(errorWrapper: errorWrapper)
+            })
+            .environmentObject(appManager)
             .environmentObject(userManager)
         }
     }
