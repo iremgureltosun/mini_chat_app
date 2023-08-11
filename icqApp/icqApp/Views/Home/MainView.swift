@@ -41,7 +41,6 @@ struct MainView: View {
             Image("lobby")
                 .resizable().ignoresSafeArea()
             VStack {
-
                 GroupsContainerView().environmentObject(GroupsManager())
             }
         }

@@ -12,6 +12,8 @@ struct DialogView: View {
     let chatRoom: ChatGroup
     @State private var text: String = ""
     @EnvironmentObject private var chatManager: GroupsManager
+    @State private var groupDetailConfig = GroupDetailConfig()
+    @FocusState private var isChatFieldFocused: Bool
 
     var body: some View {
         VStack {
@@ -29,8 +31,12 @@ struct DialogView: View {
             }
 
             Spacer()
-            TextField("Enter your message", text: $text)
-            Button("Send") {
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
+        .overlay(alignment: .bottom) {
+            ChatMessageInputView(groupDetailConfig: $groupDetailConfig, isChatTextFieldFocused: _isChatFieldFocused) {
+                // send message
                 Task {
                     do {
                         guard let user = Auth.auth().currentUser else { return }
@@ -43,7 +49,19 @@ struct DialogView: View {
                 }
             }
         }
-        .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
+        .padding()
+        .confirmationDialog("Options", isPresented: $groupDetailConfig.showOptions, actions: {
+            Button("Camera"){
+                groupDetailConfig.sourceType = .camera
+            }
+            Button("Photo Library"){
+                groupDetailConfig.sourceType = .photoLibrary
+            }
+        })
+        //Every time groupDetailConfig.sourceType changes, image picker gets activated
+        .sheet(item: $groupDetailConfig.sourceType, content: { sourceType in
+            ImagePicker(image: $groupDetailConfig.selectedImage, sourceType: sourceType)
+        })
         .onAppear {
             Task {
                 try await chatManager.listenChatMessages(in: chatRoom)

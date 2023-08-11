@@ -41,6 +41,7 @@
 		4DD290982A5D95EC00936F5F /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD290972A5D95EC00936F5F /* ChatMessage.swift */; };
 		4DDA63A52A6163E900DBCDBA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA63A42A6163E900DBCDBA /* GoogleService-Info.plist */; };
 		4DE68E712A86100100356E23 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE68E702A86100100356E23 /* LogoutView.swift */; };
+		4DE68E732A86254000356E23 /* ChatMessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE68E722A86254000356E23 /* ChatMessageInputView.swift */; };
 		4DE6B36E2A84B2AB00BD095C /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B36D2A84B2AB00BD095C /* LaunchView.swift */; };
 		4DE6B3752A85106200BD095C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B3742A85106200BD095C /* SettingsView.swift */; };
 		4DE6B3772A8510FB00BD095C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B3762A8510FB00BD095C /* ImagePicker.swift */; };
@@ -101,6 +102,7 @@
 		4DD290972A5D95EC00936F5F /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		4DDA63A42A6163E900DBCDBA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4DE68E702A86100100356E23 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
+		4DE68E722A86254000356E23 /* ChatMessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageInputView.swift; sourceTree = "<group>"; };
 		4DE6B36D2A84B2AB00BD095C /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		4DE6B3722A84FC8D00BD095C /* icqApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = icqApp.entitlements; sourceTree = "<group>"; };
 		4DE6B3742A85106200BD095C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				4D7921B62A5EF42200814BA2 /* ChatMessageView.swift */,
 				4DC34B462A5E87B900C0A9CF /* ChatMessageListView.swift */,
 				4DD290952A5D81F500936F5F /* DialogView.swift */,
+				4DE68E722A86254000356E23 /* ChatMessageInputView.swift */,
 			);
 			path = Messaging;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				4DD2908C2A5D7A5D00936F5F /* GroupsManager.swift in Sources */,
 				4DC833F72A5C2D9000A78FB5 /* MainView.swift in Sources */,
 				4DC833F02A5C129D00A78FB5 /* String+.swift in Sources */,
+				4DE68E732A86254000356E23 /* ChatMessageInputView.swift in Sources */,
 				4DE6B3792A85112E00BD095C /* Image+.swift in Sources */,
 				4DE68E712A86100100356E23 /* LogoutView.swift in Sources */,
 				4DC833B42A5BEA5300A78FB5 /* icqApp.swift in Sources */,
@@ -662,6 +666,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = icqApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "App requires access to your camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -695,6 +700,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = icqApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "App requires access to your camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
