@@ -25,8 +25,8 @@ class UserManager: ObservableObject {
         request.photoURL = photoURL
         try await request.commitChanges()
 
-        // update UserInf for all messages
-        // try await updateUserInfoForAllMessages(uid: user.uid, updatedInfo: ["profilePhotoURL": photoURL.absoluteString])
+        // update UserInfo for all messages
+         try await updateUserInfoForAllMessages(uid: user.uid, updatedInfo: ["profilePhotoURL": photoURL.absoluteString])
     }
 
     private func updateUserInfoForAllMessages(uid: String, updatedInfo: [AnyHashable: Any]) async throws {
