@@ -17,7 +17,7 @@ class UserManager: ObservableObject {
         request.displayName = displayName
         try await request.commitChanges()
 
-        try await updateUserInfoForAllMessages(uid: user.uid, updatedInfo: ["displayName": user.displayName ?? "Guest"])
+        try await updateUserInfoForAllMessages(uid: user.uid, updatedInfo: ["displayName": user.displayName ?? StaticKeywords.guest])
     }
 
     func updatePhotoURL(for user: User, photoURL: URL) async throws {

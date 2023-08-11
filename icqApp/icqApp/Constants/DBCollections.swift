@@ -7,6 +7,9 @@
 
 import Foundation
 
+enum StaticKeywords {
+    static let guest = "Guest"
+}
 enum DBCollections {
     static let groups = "groups"
     static let messages = "messages"

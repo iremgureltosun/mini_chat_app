@@ -24,8 +24,8 @@ struct SettingsView: View {
     @State private var currentPhotoURL: URL? = Auth.auth().currentUser?.photoURL
 
     var displayName: String {
-        guard let currentUser = Auth.auth().currentUser else { return "Guest" }
-        return currentUser.displayName ?? "Guest"
+        guard let currentUser = Auth.auth().currentUser else { return StaticKeywords.guest }
+        return currentUser.displayName ?? StaticKeywords.guest
     }
 
     var body: some View {

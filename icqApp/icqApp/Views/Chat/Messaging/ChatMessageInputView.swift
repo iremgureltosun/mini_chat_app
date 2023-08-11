@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-struct GroupDetailConfig {
+struct DialogConfig {
     var chatText: String = ""
     var sourceType: UIImagePickerController.SourceType?
     var selectedImage: UIImage?
@@ -23,24 +23,24 @@ struct GroupDetailConfig {
 }
 
 struct ChatMessageInputView: View {
-    @Binding var groupDetailConfig: GroupDetailConfig
+    @Binding var dialogConfig: DialogConfig
     @FocusState var isChatTextFieldFocused: Bool
     var onSendMessage: () -> Void
 
     var body: some View {
         HStack {
             Button {
-                groupDetailConfig.showOptions = true
+                dialogConfig.showOptions = true
             } label: {
                 Image(systemName: "plus")
             }
 
-            TextField("Enter text here", text: $groupDetailConfig.chatText)
+            TextField("Enter text here", text: $dialogConfig.chatText)
                 .textFieldStyle(.roundedBorder)
                 .focused($isChatTextFieldFocused)
 
             Button {
-                if groupDetailConfig.isValid {
+                if dialogConfig.isValid {
                     onSendMessage()
                 }
             } label: {
@@ -48,13 +48,13 @@ struct ChatMessageInputView: View {
                     .font(.largeTitle)
                     .rotationEffect(Angle(degrees: 44))
 
-            }.disabled(!groupDetailConfig.isValid)
+            }.disabled(!dialogConfig.isValid)
         }
     }
 }
 
 struct ChatMessageInputView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatMessageInputView(groupDetailConfig: .constant(GroupDetailConfig(chatText: "Hello World")), onSendMessage: { })
+        ChatMessageInputView(dialogConfig: .constant(DialogConfig(chatText: "Hello World")), onSendMessage: { })
     }
 }

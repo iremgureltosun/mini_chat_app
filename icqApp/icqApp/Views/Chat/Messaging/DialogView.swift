@@ -6,13 +6,14 @@
 //
 
 import FirebaseAuth
+import FirebaseStorage
 import SwiftUI
 
 struct DialogView: View {
     let chatRoom: ChatGroup
     @State private var text: String = ""
     @EnvironmentObject private var chatManager: GroupsManager
-    @State private var groupDetailConfig = GroupDetailConfig()
+    @State private var dialogConfig = DialogConfig()
     @FocusState private var isChatFieldFocused: Bool
 
     var body: some View {
@@ -34,34 +35,39 @@ struct DialogView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
+        .confirmationDialog("Options", isPresented: $dialogConfig.showOptions, actions: {
+            Button("Camera") {
+                dialogConfig.sourceType = .camera
+            }
+            Button("Photo Library") {
+                dialogConfig.sourceType = .photoLibrary
+            }
+        })
+        // Every time groupDetailConfig.sourceType changes, image picker gets activated
+        .sheet(item: $dialogConfig.sourceType, content: { sourceType in
+            ImagePicker(image: $dialogConfig.selectedImage, sourceType: sourceType)
+        })
+        .overlay(alignment: .center, content: {
+            if let selectedImage = dialogConfig.selectedImage {
+                PreviewImageView(selectedImage: selectedImage) {
+                    withAnimation {
+                        dialogConfig.selectedImage = nil
+                    }
+                }
+            }
+        })
         .overlay(alignment: .bottom) {
-            ChatMessageInputView(groupDetailConfig: $groupDetailConfig, isChatTextFieldFocused: _isChatFieldFocused) {
+            ChatMessageInputView(dialogConfig: $dialogConfig, isChatTextFieldFocused: _isChatFieldFocused) {
                 // send message
                 Task {
                     do {
-                        guard let user = Auth.auth().currentUser else { return }
-                        let chatMessage = ChatMessage(documentId: UUID().uuidString, text: text, uid: user.uid, dateCreated: Date(), displayName: user.displayName ?? "guest", profilePhotoURL: user.photoURL?.absoluteString ?? "")
-                        try await chatManager.sendMessage(message: chatMessage, chatRoom: chatRoom)
-                        text = ""
+                        try await sendMessage()
                     } catch {
                         debugPrint(error)
                     }
                 }
-            }
+            }.padding()
         }
-        .padding()
-        .confirmationDialog("Options", isPresented: $groupDetailConfig.showOptions, actions: {
-            Button("Camera"){
-                groupDetailConfig.sourceType = .camera
-            }
-            Button("Photo Library"){
-                groupDetailConfig.sourceType = .photoLibrary
-            }
-        })
-        //Every time groupDetailConfig.sourceType changes, image picker gets activated
-        .sheet(item: $groupDetailConfig.sourceType, content: { sourceType in
-            ImagePicker(image: $groupDetailConfig.selectedImage, sourceType: sourceType)
-        })
         .onAppear {
             Task {
                 try await chatManager.listenChatMessages(in: chatRoom)
@@ -70,6 +76,27 @@ struct DialogView: View {
         .onDisappear {
             chatManager.detachFirebaseListener()
         }
+    }
+
+    private func sendMessage() async throws {
+        guard let user = Auth.auth().currentUser else { return }
+        var chatMessage = ChatMessage(documentId: UUID().uuidString, text: text, uid: user.uid, dateCreated: Date(), displayName: user.displayName ?? StaticKeywords.guest, profilePhotoURL: user.photoURL?.absoluteString ?? "")
+        // If user selects an image, we add attachment to message!
+        if let selectedImage = dialogConfig.selectedImage {
+            guard let resizedImage = selectedImage.resize(to: CGSize(width: 600, height: 600)),
+                  let imageData = resizedImage.pngData() else {
+                return
+            }
+            let url = try await Storage.storage().uploadData(for: UUID().uuidString, data: imageData, bucket: .attachments)
+            chatMessage.attachmentPhotoURL = url.absoluteString
+        }
+
+        try await chatManager.sendMessage(message: chatMessage, chatRoom: chatRoom)
+        clearFields()
+        text = ""
+    }
+    private func clearFields(){
+        dialogConfig.clearForm()
     }
 }
 

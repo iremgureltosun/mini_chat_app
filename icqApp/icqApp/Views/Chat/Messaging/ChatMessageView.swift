@@ -26,6 +26,15 @@ struct ChatMessageView: View {
                     .foregroundColor(.white)
 
                 // attachment photo URL
+                if let attachmentPhotoURL = chatMessage.displayAttachmentPhotoURL{
+                    AsyncImage(url: attachmentPhotoURL){image in
+                        image.resizable()
+                            .aspectRatio(contentMode: .fit)
+                        
+                    }placeholder:{
+                        ProgressView("Loading...")
+                    }
+                }
 
                 Text(chatMessage.text)
                 Text(chatMessage.dateCreated, format: .dateTime)
