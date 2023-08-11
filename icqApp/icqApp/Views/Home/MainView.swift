@@ -18,10 +18,10 @@ struct MainView: View {
                     Label("Chats", systemImage: "message.fill")
                 }
 
-            Text("Friends")
-                .tabItem {
-                    Label("Friends", systemImage: "face.smiling")
-                }
+//            Text("Friends")
+//                .tabItem {
+//                    Label("Friends", systemImage: "face.smiling")
+//                }
 
             SettingsView()
                 .tabItem {
