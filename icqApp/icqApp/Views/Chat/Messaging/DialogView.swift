@@ -34,7 +34,7 @@ struct DialogView: View {
                 Task {
                     do {
                         guard let user = Auth.auth().currentUser else { return }
-                        let chatMessage = ChatMessage(documentId: UUID().uuidString, text: text, uid: user.uid, dateCreated: Date(), displayName: user.displayName ?? "guest")
+                        let chatMessage = ChatMessage(documentId: UUID().uuidString, text: text, uid: user.uid, dateCreated: Date(), displayName: user.displayName ?? "guest", profilePhotoURL: user.photoURL?.absoluteString ?? "")
                         try await chatManager.sendMessage(message: chatMessage, chatRoom: chatRoom)
                         text = ""
                     } catch {

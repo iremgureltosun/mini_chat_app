@@ -8,7 +8,7 @@
 import FirebaseAuth
 import SwiftUI
 
-struct ChatView: View {
+struct MainView: View {
     @EnvironmentObject private var appState: ApplicationManager
 
     var body: some View {
@@ -27,6 +27,11 @@ struct ChatView: View {
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
+            
+            LogoutView()
+                .tabItem {
+                    Label("Logout", systemImage: "rectangle.portrait.and.arrow.forward")
+                }
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -36,41 +41,16 @@ struct ChatView: View {
             Image("lobby")
                 .resizable().ignoresSafeArea()
             VStack {
-                HStack {
-                    if let userName = Auth.auth().currentUser?.displayName {
-                        Text("Hello, \(userName)!")
-                    }
-                    Spacer()
-
-                    if Auth.auth().currentUser != nil {
-                        Button("Logout") {
-                            logout()
-                        }
-                        .buttonStyle(.borderedProminent)
-                    }
-                }
-                .background(.clear)
-                .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
-                .frame(height: 50)
 
                 GroupsContainerView().environmentObject(GroupsManager())
             }
-        }
-    }
-
-    func logout() {
-        do {
-            try Auth.auth().signOut()
-            _ = appState.routes.popLast()
-        } catch {
-            debugPrint(error.localizedDescription)
         }
     }
 }
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView()
+        MainView()
             .environmentObject(UserManager())
             .environmentObject(ApplicationManager.shared)
     }

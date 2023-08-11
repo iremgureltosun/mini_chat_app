@@ -16,6 +16,9 @@ struct ChatMessageView: View {
         HStack {
             // profile photo
 
+            if direction == .left {
+                getProfilePhoto(for: chatMessage)
+            }
             VStack(alignment: .leading, spacing: 5) {
                 Text(chatMessage.displayName)
                     .opacity(0.8)
@@ -36,7 +39,6 @@ struct ChatMessageView: View {
                 .foregroundColor(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
 
-            // profile photo
         }.listRowSeparator(.hidden)
             .overlay(alignment: direction == .left ? .bottomLeading : .bottomTrailing) {
                 Image(systemName: "arrowtriangle.down.fill")
@@ -45,6 +47,26 @@ struct ChatMessageView: View {
                     .offset(x: direction == .left ? 30 : -30, y: 10)
                     .foregroundColor(color)
             }
+        // profile photo
+
+        if direction == .right {
+            getProfilePhoto(for: chatMessage)
+        }
+    }
+
+    @ViewBuilder
+    private func getProfilePhoto(for message: ChatMessage) -> some View {
+        if let profilePhotoURL = chatMessage.displayProfilPhotoURL {
+            AsyncImage(url: profilePhotoURL) { image in
+                image.rounded(width: 34, height: 34)
+            } placeholder: {
+                Image(systemName: "person.crop.circle")
+                    .font(.title)
+            }
+        } else {
+            Image(systemName: "person.crop.circle")
+                .font(.title)
+        }
     }
 }
 

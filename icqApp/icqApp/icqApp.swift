@@ -22,7 +22,7 @@ struct icqApp: App {
             NavigationStack(path: $appState.routes) {
                 ZStack {
                     if Auth.auth().currentUser != nil {
-                        ChatView()
+                        MainView()
 
                     } else {
                         LaunchView()
@@ -34,7 +34,7 @@ struct icqApp: App {
                         HomeView()
 
                     case .chat:
-                        ChatView()
+                        MainView()
 
                     case .settings:
                         SettingsView()

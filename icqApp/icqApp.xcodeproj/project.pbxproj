@@ -29,7 +29,7 @@
 		4DC833F02A5C129D00A78FB5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833EF2A5C129D00A78FB5 /* String+.swift */; };
 		4DC833F22A5C165100A78FB5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833F12A5C165100A78FB5 /* LoginView.swift */; };
 		4DC833F52A5C236F00A78FB5 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833F42A5C236F00A78FB5 /* UserManager.swift */; };
-		4DC833F72A5C2D9000A78FB5 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833F62A5C2D9000A78FB5 /* ChatView.swift */; };
+		4DC833F72A5C2D9000A78FB5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833F62A5C2D9000A78FB5 /* MainView.swift */; };
 		4DC833FA2A5C339800A78FB5 /* MasterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833F92A5C339800A78FB5 /* MasterPage.swift */; };
 		4DC833FC2A5C3CCC00A78FB5 /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833FB2A5C3CCC00A78FB5 /* ApplicationManager.swift */; };
 		4DC833FE2A5C460700A78FB5 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833FD2A5C460700A78FB5 /* FriendsView.swift */; };
@@ -40,6 +40,7 @@
 		4DD290962A5D81F500936F5F /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD290952A5D81F500936F5F /* DialogView.swift */; };
 		4DD290982A5D95EC00936F5F /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD290972A5D95EC00936F5F /* ChatMessage.swift */; };
 		4DDA63A52A6163E900DBCDBA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DDA63A42A6163E900DBCDBA /* GoogleService-Info.plist */; };
+		4DE68E712A86100100356E23 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE68E702A86100100356E23 /* LogoutView.swift */; };
 		4DE6B36E2A84B2AB00BD095C /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B36D2A84B2AB00BD095C /* LaunchView.swift */; };
 		4DE6B3752A85106200BD095C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B3742A85106200BD095C /* SettingsView.swift */; };
 		4DE6B3772A8510FB00BD095C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B3762A8510FB00BD095C /* ImagePicker.swift */; };
@@ -88,7 +89,7 @@
 		4DC833EF2A5C129D00A78FB5 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		4DC833F12A5C165100A78FB5 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4DC833F42A5C236F00A78FB5 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		4DC833F62A5C2D9000A78FB5 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		4DC833F62A5C2D9000A78FB5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4DC833F92A5C339800A78FB5 /* MasterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPage.swift; sourceTree = "<group>"; };
 		4DC833FB2A5C3CCC00A78FB5 /* ApplicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
 		4DC833FD2A5C460700A78FB5 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 		4DD290952A5D81F500936F5F /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		4DD290972A5D95EC00936F5F /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		4DDA63A42A6163E900DBCDBA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4DE68E702A86100100356E23 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 		4DE6B36D2A84B2AB00BD095C /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		4DE6B3722A84FC8D00BD095C /* icqApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = icqApp.entitlements; sourceTree = "<group>"; };
 		4DE6B3742A85106200BD095C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -269,7 +271,6 @@
 		4DD2908F2A5D7CFD00936F5F /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				4DC833F62A5C2D9000A78FB5 /* ChatView.swift */,
 				4DE6B3702A84F9E300BD095C /* Messaging */,
 				4DE6B36F2A84F9D400BD095C /* Lobby */,
 			);
@@ -307,9 +308,11 @@
 		4DE6B3712A84FA3300BD095C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4DC833F62A5C2D9000A78FB5 /* MainView.swift */,
 				4DC833DD2A5BEEB200A78FB5 /* HomeView.swift */,
 				4DC833F12A5C165100A78FB5 /* LoginView.swift */,
 				4DC833EC2A5C113600A78FB5 /* SignupView.swift */,
+				4DE68E702A86100100356E23 /* LogoutView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -484,9 +487,10 @@
 				4DC833DE2A5BEEB200A78FB5 /* HomeView.swift in Sources */,
 				4D450C142A813C2500E69690 /* UserDefaultsKeys.swift in Sources */,
 				4DD2908C2A5D7A5D00936F5F /* GroupsManager.swift in Sources */,
-				4DC833F72A5C2D9000A78FB5 /* ChatView.swift in Sources */,
+				4DC833F72A5C2D9000A78FB5 /* MainView.swift in Sources */,
 				4DC833F02A5C129D00A78FB5 /* String+.swift in Sources */,
 				4DE6B3792A85112E00BD095C /* Image+.swift in Sources */,
+				4DE68E712A86100100356E23 /* LogoutView.swift in Sources */,
 				4DC833B42A5BEA5300A78FB5 /* icqApp.swift in Sources */,
 				4DC833FA2A5C339800A78FB5 /* MasterPage.swift in Sources */,
 				4DD290912A5D7D1300936F5F /* AddNewChatRoomView.swift in Sources */,
