@@ -43,6 +43,7 @@
 		4DE68E712A86100100356E23 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE68E702A86100100356E23 /* LogoutView.swift */; };
 		4DE68E732A86254000356E23 /* ChatMessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE68E722A86254000356E23 /* ChatMessageInputView.swift */; };
 		4DE68E752A863F2E00356E23 /* PreviewImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE68E742A863F2E00356E23 /* PreviewImageView.swift */; };
+		4DE68E772A86471900356E23 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE68E762A86471900356E23 /* LoadingView.swift */; };
 		4DE6B36E2A84B2AB00BD095C /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B36D2A84B2AB00BD095C /* LaunchView.swift */; };
 		4DE6B3752A85106200BD095C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B3742A85106200BD095C /* SettingsView.swift */; };
 		4DE6B3772A8510FB00BD095C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6B3762A8510FB00BD095C /* ImagePicker.swift */; };
@@ -105,6 +106,7 @@
 		4DE68E702A86100100356E23 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 		4DE68E722A86254000356E23 /* ChatMessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageInputView.swift; sourceTree = "<group>"; };
 		4DE68E742A863F2E00356E23 /* PreviewImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewImageView.swift; sourceTree = "<group>"; };
+		4DE68E762A86471900356E23 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		4DE6B36D2A84B2AB00BD095C /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		4DE6B3722A84FC8D00BD095C /* icqApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = icqApp.entitlements; sourceTree = "<group>"; };
 		4DE6B3742A85106200BD095C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				4DC833F12A5C165100A78FB5 /* LoginView.swift */,
 				4DC833EC2A5C113600A78FB5 /* SignupView.swift */,
 				4DE68E702A86100100356E23 /* LogoutView.swift */,
+				4DE68E762A86471900356E23 /* LoadingView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				4DC833F22A5C165100A78FB5 /* LoginView.swift in Sources */,
 				4DC833F52A5C236F00A78FB5 /* UserManager.swift in Sources */,
 				4DE6B37F2A8511D300BD095C /* Storage+.swift in Sources */,
+				4DE68E772A86471900356E23 /* LoadingView.swift in Sources */,
 				4DD290962A5D81F500936F5F /* DialogView.swift in Sources */,
 				4DE6B3812A85154C00BD095C /* DBCollections.swift in Sources */,
 				4DC833DE2A5BEEB200A78FB5 /* HomeView.swift in Sources */,

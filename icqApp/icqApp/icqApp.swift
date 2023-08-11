@@ -41,6 +41,14 @@ struct icqApp: App {
                     }
                 }
             }
+            .overlay(alignment: .top, content: {
+                switch appState.loadingState{
+                case.idle:
+                    EmptyView()
+                case.loading(let text):
+                    LoadingView(message: text)
+                }
+            })
             .environmentObject(appState)
             .environmentObject(userManager)
         }

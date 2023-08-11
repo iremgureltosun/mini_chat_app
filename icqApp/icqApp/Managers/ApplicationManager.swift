@@ -6,6 +6,14 @@
 //
 
 import Foundation
+enum LoadingState: Hashable, Identifiable {
+    case idle
+    case loading(String)
+
+    var id: Self {
+        return self
+    }
+}
 
 enum Route: Hashable {
     case home
@@ -14,6 +22,7 @@ enum Route: Hashable {
 }
 
 class ApplicationManager: ObservableObject {
+    @Published var loadingState: LoadingState = .idle
     @Published var routes: [Route]
     static let shared = ApplicationManager() // The singleton instance
 
