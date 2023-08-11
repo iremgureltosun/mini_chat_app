@@ -80,7 +80,7 @@ struct DialogView: View {
 
     private func sendMessage() async throws {
         guard let user = Auth.auth().currentUser else { return }
-        var chatMessage = ChatMessage(documentId: UUID().uuidString, text: text, uid: user.uid, dateCreated: Date(), displayName: user.displayName ?? StaticKeywords.guest, profilePhotoURL: user.photoURL?.absoluteString ?? "")
+        var chatMessage = ChatMessage(documentId: UUID().uuidString, text: dialogConfig.chatText, uid: user.uid, dateCreated: Date(), displayName: user.displayName ?? StaticKeywords.guest, profilePhotoURL: user.photoURL?.absoluteString ?? "")
         // If user selects an image, we add attachment to message!
         if let selectedImage = dialogConfig.selectedImage {
             guard let resizedImage = selectedImage.resize(to: CGSize(width: 600, height: 600)),
