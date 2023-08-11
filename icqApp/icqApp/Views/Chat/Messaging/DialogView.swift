@@ -64,6 +64,8 @@ struct DialogView: View {
                         try await sendMessage()
                     } catch {
                         debugPrint(error)
+                        clearFields()
+                        appState.loadingState = .idle
                     }
                 }
             }.padding()
