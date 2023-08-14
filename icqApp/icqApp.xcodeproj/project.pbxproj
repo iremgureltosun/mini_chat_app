@@ -32,7 +32,6 @@
 		4DC833F72A5C2D9000A78FB5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833F62A5C2D9000A78FB5 /* MainView.swift */; };
 		4DC833FA2A5C339800A78FB5 /* MasterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833F92A5C339800A78FB5 /* MasterPage.swift */; };
 		4DC833FC2A5C3CCC00A78FB5 /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833FB2A5C3CCC00A78FB5 /* ApplicationManager.swift */; };
-		4DC833FE2A5C460700A78FB5 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC833FD2A5C460700A78FB5 /* FriendsView.swift */; };
 		4DD2908C2A5D7A5D00936F5F /* GroupsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2908B2A5D7A5D00936F5F /* GroupsManager.swift */; };
 		4DD2908E2A5D7B5B00936F5F /* GroupsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2908D2A5D7B5B00936F5F /* GroupsContainerView.swift */; };
 		4DD290912A5D7D1300936F5F /* AddNewChatRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD290902A5D7D1300936F5F /* AddNewChatRoomView.swift */; };
@@ -97,7 +96,6 @@
 		4DC833F62A5C2D9000A78FB5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4DC833F92A5C339800A78FB5 /* MasterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterPage.swift; sourceTree = "<group>"; };
 		4DC833FB2A5C3CCC00A78FB5 /* ApplicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
-		4DC833FD2A5C460700A78FB5 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		4DD2908B2A5D7A5D00936F5F /* GroupsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsManager.swift; sourceTree = "<group>"; };
 		4DD2908D2A5D7B5B00936F5F /* GroupsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsContainerView.swift; sourceTree = "<group>"; };
 		4DD290902A5D7D1300936F5F /* AddNewChatRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewChatRoomView.swift; sourceTree = "<group>"; };
@@ -240,7 +238,6 @@
 				4DE6B3732A85103F00BD095C /* Settings */,
 				4DE6B3712A84FA3300BD095C /* Home */,
 				4DD2908F2A5D7CFD00936F5F /* Chat */,
-				4DC833FD2A5C460700A78FB5 /* FriendsView.swift */,
 				4DE6B36D2A84B2AB00BD095C /* LaunchView.swift */,
 				4DE98FE92A867619009754BD /* ErrorView.swift */,
 			);
@@ -516,7 +513,6 @@
 				4DD290912A5D7D1300936F5F /* AddNewChatRoomView.swift in Sources */,
 				4D9F5A382A712B2B0071E703 /* AppDelegate.swift in Sources */,
 				4DE6B3772A8510FB00BD095C /* ImagePicker.swift in Sources */,
-				4DC833FE2A5C460700A78FB5 /* FriendsView.swift in Sources */,
 				4D7921B72A5EF42200814BA2 /* ChatMessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,7 +674,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"icqApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = W3DRCMJ49B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = icqApp/Info.plist;
@@ -712,7 +708,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"icqApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = W3DRCMJ49B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = icqApp/Info.plist;

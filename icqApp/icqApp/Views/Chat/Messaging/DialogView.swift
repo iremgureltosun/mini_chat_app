@@ -18,7 +18,6 @@ struct DialogView: View {
 
     var body: some View {
         VStack {
-            Text(chatRoom.subject).font(.title)
             ScrollViewReader { proxy in
                 ChatMessageListView(messages: chatManager.chatMessages)
                     .onChange(of: chatManager.chatMessages) { _ in
@@ -33,8 +32,9 @@ struct DialogView: View {
 
             Spacer()
         }
+        .navigationTitle(chatRoom.subject)
         .frame(maxWidth: .infinity)
-        .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
+        .padding(.horizontal, MasterPage.Constant.Space.medium)
         .confirmationDialog("Options", isPresented: $dialogConfig.showOptions, actions: {
             Button("Camera") {
                 dialogConfig.sourceType = .camera

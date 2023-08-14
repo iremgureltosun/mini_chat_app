@@ -31,7 +31,7 @@ struct ChatMessageListView: View {
                         }
                     }.listRowSeparator(.hidden)
                 }
-                .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
+                .padding(.horizontal, MasterPage.Constant.Space.medium)
             }
 
         }.padding(.bottom, 60)

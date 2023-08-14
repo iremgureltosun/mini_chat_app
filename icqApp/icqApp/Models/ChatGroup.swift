@@ -20,12 +20,12 @@ struct ChatGroup: Codable, Identifiable {
 
 extension ChatGroup {
     func toDictionary() -> [String: Any] {
-        return ["subject": subject]
+        return [DBCollections.ChatGroup.subject: subject]
     }
 
     static func fromSnapshot(snapshot: QueryDocumentSnapshot) -> ChatGroup? {
         let dictionary = snapshot.data()
-        guard let subject = dictionary["subject"] as? String else {
+        guard let subject = dictionary[DBCollections.ChatGroup.subject] as? String else {
             return nil
         }
 

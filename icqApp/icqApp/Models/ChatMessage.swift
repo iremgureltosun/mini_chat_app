@@ -39,23 +39,23 @@ struct ChatMessage: Codable, Identifiable, Equatable {
 extension ChatMessage {
     func toDictionary() -> [String: Any] {
         return [
-            "text": text,
-            "uid": uid,
-            "dateCreated": dateCreated,
-            "displayName": displayName,
-            "profilePhotoURL": profilePhotoURL,
-            "attachmentPhotoURL": attachmentPhotoURL,
+            DBCollections.ChatMessage.text : text,
+            DBCollections.ChatMessage.uid : uid,
+            DBCollections.ChatMessage.dateCreated : dateCreated,
+            DBCollections.ChatMessage.displayName : displayName,
+            DBCollections.ChatMessage.profilePhotoURL : profilePhotoURL,
+            DBCollections.ChatMessage.attachmentPhotoURL : attachmentPhotoURL,
         ]
     }
 
     static func fromSnapshot(snapshot: QueryDocumentSnapshot) -> ChatMessage? {
         let dictionary = snapshot.data()
-        guard let text = dictionary["text"] as? String,
-              let uid = dictionary["uid"] as? String,
-              let dateCreated = (dictionary["dateCreated"] as? Timestamp)?.dateValue(),
-              let displayName = dictionary["displayName"] as? String,
-              let profilePhotoURL = dictionary["profilePhotoURL"] as? String,
-              let attachmentPhotoURL = dictionary["attachmentPhotoURL"] as? String
+        guard let text = dictionary[DBCollections.ChatMessage.text] as? String,
+              let uid = dictionary[DBCollections.ChatMessage.uid] as? String,
+              let dateCreated = (dictionary[DBCollections.ChatMessage.dateCreated] as? Timestamp)?.dateValue(),
+              let displayName = dictionary[DBCollections.ChatMessage.displayName] as? String,
+              let profilePhotoURL = dictionary[DBCollections.ChatMessage.profilePhotoURL] as? String,
+              let attachmentPhotoURL = dictionary[DBCollections.ChatMessage.attachmentPhotoURL] as? String
         else {
             return nil
         }

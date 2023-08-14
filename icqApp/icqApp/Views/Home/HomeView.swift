@@ -15,14 +15,14 @@ struct HomeView: View {
                 VStack {
                     if !presentLogin {
                         SignupView(presentLogin: $presentLogin)
-                            .padding(.horizontal, MasterPage.Constant.Space.medium)
+                            .padding(.horizontal, MasterPage.Constant.Space.large)
                     } else {
                         LoginView(presentLogin: $presentLogin)
-                            .padding(.horizontal, MasterPage.Constant.Space.medium)
+                            .padding(.horizontal, MasterPage.Constant.Space.large)
                     }
                     Spacer()
                 }
-                .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
+                .padding(.horizontal, MasterPage.Constant.Space.medium)
                 .padding(.top, 210)
             }
         }

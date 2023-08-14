@@ -34,20 +34,30 @@ struct LoginView: View {
                 TextField("Email", text: $email).textInputAutocapitalization(.never)
                 SecureField("Password", text: $password).textInputAutocapitalization(.never)
 
-                Button("Login") {
-                    Task {
-                        await login()
+                HStack {
+                    Button(action: {
+                        Task {
+                            await login()
+                        }
+                    }) {
+                        Text("Login")
+                    }
+                    .disabled(!isFormValid)
+
+                    Spacer()
+
+                    Button(action: {
+                        // Activate register view
+                        presentLogin = false
+                    }) {
+                        Text("Don't you have an account?")
                     }
                 }
-                .disabled(!isFormValid)
-
-                Button("Don't you have an account?") {
-                    // Activate register view
-                    presentLogin = false
-                }
             }
+
             .scrollContentBackground(.hidden)
         }
+        .padding(.horizontal, MasterPage.Constant.Space.small)
         .navigationBarBackButtonHidden(true)
     }
 

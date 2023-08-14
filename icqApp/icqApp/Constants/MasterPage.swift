@@ -10,8 +10,9 @@ import Foundation
 struct MasterPage {
     enum Constant {
         enum Space {
-            static let horizontalPadding: CGFloat = 24
-            static let medium: CGFloat = 30
+            static let small: CGFloat = 15
+            static let medium: CGFloat = 24
+            static let large: CGFloat = 30
         }
 
         enum Image {

@@ -14,4 +14,16 @@ enum StaticKeywords {
 enum DBCollections {
     static let groups = "groups"
     static let messages = "messages"
+
+    enum ChatMessage {
+        static let text = "text"
+        static let uid = "uid"
+        static let dateCreated = "dateCreated"
+        static let displayName = "displayName"
+        static let profilePhotoURL = "profilePhotoURL"
+        static let attachmentPhotoURL = "attachmentPhotoURL"
+    }
+    enum ChatGroup{
+        static let subject = "subject"
+    }
 }

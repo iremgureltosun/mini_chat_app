@@ -20,7 +20,7 @@ struct GroupsContainerView: View {
                 }
                 .foregroundColor(.orange)
                 .buttonStyle(.bordered)
-                .padding([.trailing, .top], MasterPage.Constant.Space.horizontalPadding)
+                .padding([.trailing, .top], MasterPage.Constant.Space.medium)
             }
 
             List(groupsManager.chatRooms) { room in
@@ -32,12 +32,12 @@ struct GroupsContainerView: View {
                         Group {
                             Image(systemName: "person.2")
                             Text(room.subject)
-                        }.padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
+                        }.padding(.horizontal, MasterPage.Constant.Space.medium)
                     }
                     .frame(height: 85)
                     .contentShape(Rectangle())
                 }
-                .padding(.trailing, MasterPage.Constant.Space.horizontalPadding)
+                .padding(.trailing, MasterPage.Constant.Space.medium)
                 .background(RoundedRectangle(cornerRadius: 12).fill(.thinMaterial))
                 .shadow(
                     color: .black.opacity(0.08),
@@ -56,7 +56,7 @@ struct GroupsContainerView: View {
         .frame(height: 700)
         .contentShape(Rectangle())
 
-        .padding(.horizontal, MasterPage.Constant.Space.medium)
+        .padding(.horizontal, MasterPage.Constant.Space.large)
 
         .task {
             do {
