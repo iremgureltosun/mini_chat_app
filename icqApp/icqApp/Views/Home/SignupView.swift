@@ -32,27 +32,21 @@ struct SignupView: View {
                 SecureField("Password", text: $password).textInputAutocapitalization(.never)
                 TextField("Display Name", text: $displayName).textInputAutocapitalization(.never)
 
-                HStack {
-                    Group {
-                        Button("Signup") {
-                            Task {
-                                await signUp()
-                            }
-                        }
-                        .disabled(!isFormValid)
-
-                        Spacer()
-
-                        Button("Already have an account?") {
-                            // Activate login view
-                            presentLogin = true
-                        }
+                Button("Signup") {
+                    Task {
+                        await signUp()
                     }
-                    .buttonStyle(.automatic)
-                }
+                }.buttonStyle(.automatic)
+                    .disabled(!isFormValid)
+
+                Spacer()
+
+                Button("Already have an account?") {
+                    // Activate login view
+                    presentLogin = true
+                }.buttonStyle(.automatic)
             }
             .scrollContentBackground(.hidden)
-            .frame(height: 240)
         }
         .navigationBarBackButtonHidden(true)
     }

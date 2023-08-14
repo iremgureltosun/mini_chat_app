@@ -27,7 +27,7 @@ struct MainView: View {
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
-            
+
             LogoutView()
                 .tabItem {
                     Label("Logout", systemImage: "rectangle.portrait.and.arrow.forward")

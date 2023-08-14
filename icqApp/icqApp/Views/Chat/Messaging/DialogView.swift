@@ -86,7 +86,8 @@ struct DialogView: View {
         // If user selects an image, we add attachment to message!
         if let selectedImage = dialogConfig.selectedImage {
             guard let resizedImage = selectedImage.resize(to: CGSize(width: 600, height: 600)),
-                  let imageData = resizedImage.pngData() else {
+                  let imageData = resizedImage.pngData()
+            else {
                 return
             }
             let url = try await Storage.storage().uploadData(for: UUID().uuidString, data: imageData, bucket: .attachments)

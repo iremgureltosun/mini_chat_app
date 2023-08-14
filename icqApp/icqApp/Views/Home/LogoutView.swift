@@ -10,13 +10,14 @@ import SwiftUI
 
 struct LogoutView: View {
     @EnvironmentObject private var appManager: ApplicationManager
-    
+
     var body: some View {
         Image("logout").ignoresSafeArea()
-            .onAppear{
+            .onAppear {
                 logout()
             }
     }
+
     func logout() {
         do {
             try Auth.auth().signOut()

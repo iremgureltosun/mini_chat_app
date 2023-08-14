@@ -14,23 +14,22 @@ struct ErrorView: View {
         Image("error")
             .resizable()
             .ignoresSafeArea().overlay {
-            VStack {
-                Text("An error has occurred!")
-                    .font(.title)
-                    .padding(.bottom)
+                VStack {
+                    Text("An error has occurred!")
+                        .font(.title)
+                        .padding(.bottom)
 
 //                Text(errorWrapper.error.localizedDescription)
 //                    .font(.headline)
 
-                Text(errorWrapper.guidance)
-                    .font(.caption)
-                    .padding(.top)
-
+                    Text(errorWrapper.guidance)
+                        .font(.caption)
+                        .padding(.top)
+                }
+                .padding()
+                .background(.ultraThinMaterial)
+                .cornerRadius(16)
             }
-            .padding()
-            .background(.ultraThinMaterial)
-            .cornerRadius(16)
-        }
     }
 }
 

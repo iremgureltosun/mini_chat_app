@@ -9,7 +9,6 @@ import FirebaseAuth
 import SwiftUI
 
 struct LoginView: View {
-   // @AppStorage(UserDefaultsKeys.currentUserId) private var loggedInUserId: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var errorMessage: String = ""
@@ -35,33 +34,26 @@ struct LoginView: View {
                 TextField("Email", text: $email).textInputAutocapitalization(.never)
                 SecureField("Password", text: $password).textInputAutocapitalization(.never)
 
-                HStack {
-                    Group {
-                        Button("Login") {
-                            Task {
-                                await login()
-                            }
-                        }
-                        .disabled(!isFormValid)
-                        Spacer()
-                        Button("Don't you have an account?") {
-                            // Activate register view
-                            presentLogin = false
-                        }
+                Button("Login") {
+                    Task {
+                        await login()
                     }
-                    .buttonStyle(.automatic)
+                }
+                .disabled(!isFormValid)
+
+                Button("Don't you have an account?") {
+                    // Activate register view
+                    presentLogin = false
                 }
             }
             .scrollContentBackground(.hidden)
-            .frame(height: 190)
         }
         .navigationBarBackButtonHidden(true)
     }
 
     private func login() async {
         do {
-            let provider = try await Auth.auth().signIn(withEmail: email, password: password)
-            //loggedInUserId = provider.user.uid
+            let _ = try await Auth.auth().signIn(withEmail: email, password: password)
             appManager.routes.append(.chat)
         } catch {
             errorMessage = error.localizedDescription

@@ -22,7 +22,7 @@ struct ChatMessage: Codable, Identifiable, Equatable {
     let displayName: String
     var profilePhotoURL: String = ""
     var attachmentPhotoURL: String = ""
-    
+
     var id: String {
         documentId ?? UUID().uuidString
     }
@@ -30,7 +30,7 @@ struct ChatMessage: Codable, Identifiable, Equatable {
     var displayProfilPhotoURL: URL? {
         profilePhotoURL.isEmpty ? nil : URL(string: profilePhotoURL)
     }
-    
+
     var displayAttachmentPhotoURL: URL? {
         attachmentPhotoURL.isEmpty ? nil : URL(string: attachmentPhotoURL)
     }
@@ -44,7 +44,7 @@ extension ChatMessage {
             "dateCreated": dateCreated,
             "displayName": displayName,
             "profilePhotoURL": profilePhotoURL,
-            "attachmentPhotoURL": attachmentPhotoURL
+            "attachmentPhotoURL": attachmentPhotoURL,
         ]
     }
 

@@ -25,13 +25,12 @@ struct PreviewImageView: View {
                     .font(.largeTitle)
                     .foregroundColor(.white)
             }
-            
         }
     }
 }
 
 struct PreviewImageView_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewImageView(selectedImage: UIImage(named: "sample")!, onCancel: { })
+        PreviewImageView(selectedImage: UIImage(named: "sample")!, onCancel: {})
     }
 }

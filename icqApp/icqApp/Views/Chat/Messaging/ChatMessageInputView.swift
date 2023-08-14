@@ -55,6 +55,6 @@ struct ChatMessageInputView: View {
 
 struct ChatMessageInputView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatMessageInputView(dialogConfig: .constant(DialogConfig(chatText: "Hello World")), onSendMessage: { })
+        ChatMessageInputView(dialogConfig: .constant(DialogConfig(chatText: "Hello World")), onSendMessage: {})
     }
 }

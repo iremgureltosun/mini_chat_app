@@ -26,12 +26,12 @@ struct ChatMessageView: View {
                     .foregroundColor(.white)
 
                 // attachment photo URL
-                if let attachmentPhotoURL = chatMessage.displayAttachmentPhotoURL{
-                    AsyncImage(url: attachmentPhotoURL){image in
+                if let attachmentPhotoURL = chatMessage.displayAttachmentPhotoURL {
+                    AsyncImage(url: attachmentPhotoURL) { image in
                         image.resizable()
                             .aspectRatio(contentMode: .fit)
-                        
-                    }placeholder:{
+
+                    } placeholder: {
                         ProgressView("Loading...")
                     }
                 }
@@ -64,7 +64,7 @@ struct ChatMessageView: View {
     }
 
     @ViewBuilder
-    private func getProfilePhoto(for message: ChatMessage) -> some View {
+    private func getProfilePhoto(for _: ChatMessage) -> some View {
         if let profilePhotoURL = chatMessage.displayProfilPhotoURL {
             AsyncImage(url: profilePhotoURL) { image in
                 image.rounded(width: 34, height: 34)

@@ -20,8 +20,8 @@ struct LaunchView: View {
                 Image("launch")
                     .onAppear {
                         Task {
-                            if !taskStarted{
-                                try await Task.sleep(nanoseconds: 3000000000)
+                            if !taskStarted {
+                                try await Task.sleep(nanoseconds: 3_000_000_000)
                                 appManager.routes.append(.home)
                                 taskStarted = true
                             }
@@ -42,7 +42,7 @@ struct LaunchView: View {
                         .onAppear {
                             Task {
                                 // Hide the text after 3.5 second
-                                try await Task.sleep(nanoseconds: 3500000000)
+                                try await Task.sleep(nanoseconds: 3_500_000_000)
                                 withAnimation {
                                     isShowingText = false
                                 }
@@ -53,7 +53,7 @@ struct LaunchView: View {
                 .onAppear {
                     Task {
                         // Show the text after 0.5 second delay
-                        try await Task.sleep(nanoseconds: 500000000)
+                        try await Task.sleep(nanoseconds: 500_000_000)
                         withAnimation {
                             isShowingText = true
                         }

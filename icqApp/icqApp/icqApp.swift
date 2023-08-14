@@ -42,10 +42,10 @@ struct icqApp: App {
                 }
             }
             .overlay(alignment: .top, content: {
-                switch appManager.loadingState{
-                case.idle:
+                switch appManager.loadingState {
+                case .idle:
                     EmptyView()
-                case.loading(let text):
+                case let .loading(text):
                     LoadingView(message: text)
                 }
             })

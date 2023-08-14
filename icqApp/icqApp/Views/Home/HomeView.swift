@@ -25,7 +25,7 @@ struct HomeView: View {
                 .padding(.horizontal, MasterPage.Constant.Space.horizontalPadding)
                 .padding(.top, 210)
             }
-        } 
+        }
     }
 }
 

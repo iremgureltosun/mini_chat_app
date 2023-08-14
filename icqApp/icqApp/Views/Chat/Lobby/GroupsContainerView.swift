@@ -38,7 +38,7 @@ struct GroupsContainerView: View {
                     .contentShape(Rectangle())
                 }
                 .padding(.trailing, MasterPage.Constant.Space.horizontalPadding)
-                .background(RoundedRectangle(cornerRadius: 12).fill(.white))
+                .background(RoundedRectangle(cornerRadius: 12).fill(.thinMaterial))
                 .shadow(
                     color: .black.opacity(0.08),
                     radius: 8,
