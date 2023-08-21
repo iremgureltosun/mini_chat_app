@@ -61,10 +61,9 @@ struct SettingsView: View {
             .onChange(of: settingsConfig.selectedImage, perform: { image in
 
                 // resize the image
-                guard let img = image,
-                      let resizedImage = img.resize(to: CGSize(width: 100, height: 100)),
-                      let imageData = resizedImage.pngData()
-                else { return }
+                guard let img = image else { return }
+                let resizedImage = img.aspectFittedToHeight(100)
+                guard let imageData = resizedImage.pngData() else { return }
 
                 // upload the image to Firebase Storage to get the url
                 Task {

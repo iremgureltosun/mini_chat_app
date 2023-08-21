@@ -9,24 +9,17 @@ import Foundation
 import UIKit
 
 extension UIImage {
-    // StackOverFlow:
-    func resize(to size: CGSize = CGSize(width: 300, height: 300)) -> UIImage? {
-        let widthRatio = size.width / size.width
-        let heightRatio = size.height / size.height
+    /// Given a required height, returns a (rasterised) copy
+    /// of the image, aspect-fitted to that height.
 
-        var newSize: CGSize
-        if widthRatio > heightRatio {
-            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
-        } else {
-            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+    func aspectFittedToHeight(_ newHeight: CGFloat) -> UIImage {
+        let scale = newHeight / size.height
+        let newWidth = size.width * scale
+        let newSize = CGSize(width: newWidth, height: newHeight)
+        let renderer = UIGraphicsImageRenderer(size: newSize)
+
+        return renderer.image { _ in
+            self.draw(in: CGRect(origin: .zero, size: newSize))
         }
-
-        let rect = CGRect(origin: .zero, size: newSize)
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
-        draw(in: rect)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return newImage
     }
 }

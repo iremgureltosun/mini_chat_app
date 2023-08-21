@@ -24,6 +24,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
         // First request PushNotificationPermission from user
 
+        Messaging.messaging().delegate = self
+        Messaging.messaging().subscribe(toTopic: "weather") { _ in
+            print("Subscribed to weather topic")
+        }
+
         UNUserNotificationCenter.current().delegate = self
 
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -88,7 +93,15 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler([[.banner, .badge, .sound]])
     }
 
-    func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken _: Data) {}
+    func application(application _: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+    {
+        #if DEBUG
+            Messaging.messaging().setAPNSToken(deviceToken, type: .sandbox)
+        #else
+            Messaging.messaging().setAPNSToken(deviceToken, type: .prod)
+        #endif
+    }
 
     func userNotificationCenter(_: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,

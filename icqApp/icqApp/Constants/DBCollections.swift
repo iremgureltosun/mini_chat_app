@@ -23,7 +23,8 @@ enum DBCollections {
         static let profilePhotoURL = "profilePhotoURL"
         static let attachmentPhotoURL = "attachmentPhotoURL"
     }
-    enum ChatGroup{
+
+    enum ChatGroup {
         static let subject = "subject"
     }
 }

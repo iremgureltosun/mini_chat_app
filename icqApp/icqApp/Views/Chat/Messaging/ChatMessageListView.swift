@@ -26,8 +26,6 @@ struct ChatMessageListView: View {
                                     Spacer()
                                 }
                             }
-                            Spacer().frame(height: 20)
-                                .id(message.id)
                         }
                     }.listRowSeparator(.hidden)
                 }

@@ -39,12 +39,12 @@ struct ChatMessage: Codable, Identifiable, Equatable {
 extension ChatMessage {
     func toDictionary() -> [String: Any] {
         return [
-            DBCollections.ChatMessage.text : text,
-            DBCollections.ChatMessage.uid : uid,
-            DBCollections.ChatMessage.dateCreated : dateCreated,
-            DBCollections.ChatMessage.displayName : displayName,
-            DBCollections.ChatMessage.profilePhotoURL : profilePhotoURL,
-            DBCollections.ChatMessage.attachmentPhotoURL : attachmentPhotoURL,
+            DBCollections.ChatMessage.text: text,
+            DBCollections.ChatMessage.uid: uid,
+            DBCollections.ChatMessage.dateCreated: dateCreated,
+            DBCollections.ChatMessage.displayName: displayName,
+            DBCollections.ChatMessage.profilePhotoURL: profilePhotoURL,
+            DBCollections.ChatMessage.attachmentPhotoURL: attachmentPhotoURL,
         ]
     }
 
