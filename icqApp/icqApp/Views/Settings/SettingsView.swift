@@ -17,9 +17,13 @@ struct SettingsConfig {
 }
 
 struct SettingsView: View {
+    @State private var showSuccessDialog: Bool = false
+    private let title: String = "Congratulations!"
+    private let description: String = "Your profile picture is updated successfully"
     @State private var settingsConfig = SettingsConfig()
     @FocusState var isEditing: Bool
     @EnvironmentObject private var userManager: UserManager
+    @EnvironmentObject private var appManager: ApplicationManager
 
     @State private var currentPhotoURL: URL? = Auth.auth().currentUser?.photoURL
 
@@ -74,9 +78,10 @@ struct SettingsView: View {
                         let url = try await Storage.storage().uploadData(for: filename, data: imageData, bucket: .photos)
                         try await userManager.updatePhotoURL(for: currentUser, photoURL: url)
                         currentPhotoURL = url
+                        showSuccessDialog = true
 
                     } catch {
-                        print(error)
+                        appManager.errorWrapper = ErrorWrapper(error: error, guidance: error.localizedDescription)
                     }
                 }
 
@@ -85,6 +90,9 @@ struct SettingsView: View {
             .onAppear {
                 settingsConfig.displayName = displayName
             }
+            .alert(isPresented: $showSuccessDialog) {
+                       Alert(title: Text(title), message: Text(description), dismissButton: .default(Text("Got it!")))
+                   }
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
