@@ -42,9 +42,6 @@ struct ChatMessageView: View {
                     .font(.caption)
                     .opacity(0.4)
                     .frame(maxWidth: 200, alignment: .trailing)
-                Spacer().frame(height: 10)
-                    .id(chatMessage.id)
-
             }.padding(8)
                 .background(color)
                 .foregroundColor(.white)

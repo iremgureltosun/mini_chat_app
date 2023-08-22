@@ -24,7 +24,9 @@ struct DialogView: View {
                         if !chatManager.chatMessages.isEmpty {
                             let theLastMessage = chatManager.chatMessages[chatManager.chatMessages.endIndex - 1]
                             withAnimation {
-                                proxy.scrollTo(theLastMessage.id, anchor: .bottom)
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                    proxy.scrollTo(theLastMessage.id, anchor: .bottom)
+                                }
                             }
                         }
                     }

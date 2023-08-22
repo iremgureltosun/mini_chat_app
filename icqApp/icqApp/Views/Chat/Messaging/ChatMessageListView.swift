@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChatMessageListView: View {
     let messages: [ChatMessage]
-
+    
     var body: some View {
         ScrollView {
             ZStack {
@@ -26,6 +26,8 @@ struct ChatMessageListView: View {
                                     Spacer()
                                 }
                             }
+                            Spacer().frame(height: 20.0)
+                                .id(message.id)
                         }
                     }.listRowSeparator(.hidden)
                 }

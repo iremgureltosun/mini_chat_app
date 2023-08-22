@@ -25,9 +25,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         // First request PushNotificationPermission from user
 
         Messaging.messaging().delegate = self
-        Messaging.messaging().subscribe(toTopic: "weather") { _ in
-            print("Subscribed to weather topic")
-        }
 
         UNUserNotificationCenter.current().delegate = self
 
