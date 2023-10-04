@@ -91,8 +91,8 @@ struct SettingsView: View {
                 settingsConfig.displayName = displayName
             }
             .alert(isPresented: $showSuccessDialog) {
-                       Alert(title: Text(title), message: Text(description), dismissButton: .default(Text("Got it!")))
-                   }
+                Alert(title: Text(title), message: Text(description), dismissButton: .default(Text("Got it!")))
+            }
             .toolbar(content: {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
